@@ -19,52 +19,68 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 #include "config_common.h"
-#define PRODUCT         Dactyl Manuform(5x7)
 
-/* key matrix size */
-// Rows are doubled-up
-#define MATRIX_ROWS 10
-#define MATRIX_COLS 7
+/* Keyboard Id */
 
-// wiring of each half
-#define MATRIX_COL_PINS { D20, D19, D18, D15, D14, D16, D10 }
-#define MATRIX_ROW_PINS { D5, D6, D7, D8, D9 }
-
-#define DIODE_DIRECTION COL2ROW
-
-/* USB Device descriptor parameter */
 #define VENDOR_ID       0xFEED
 #define PRODUCT_ID      0x3060
 #define DEVICE_VER      0x0001
-//#define MANUFACTURER    tshort
-// defined in subfolder
-#define DESCRIPTION     A split keyboard
+#define MANUFACTURER    Adam Baumeister
+#define PRODUCT         VexDactyl 5x7
+#define DESCRIPTION     a 5x7 Dactyl Manuform Split Keyboard
 
-/* mouse config */
+/* Key Matrix and Layout */
+
+#define MATRIX_ROWS 10 // Rows are doubled-up
+#define MATRIX_COLS 7
+
+// Column Pro Micro Pins  A2, A1, A0, 15, 14, 16, 10
+#define MATRIX_COL_PINS { F5, F6, F7, B1, B3, B2, B6 }
+// Row Pro Micro Pins      5,  6,  7,  8,  9
+#define MATRIX_ROW_PINS { C6, D7, E6, B4, B5 }
+
+// Diode Direction
+#define DIODE_DIRECTION COL2ROW
+
+/* Split Communication Protcols */
+
+// Keyboard Primacy
+#define MASTER_LEFT
+
+// if using Serial
+#define USE_SERIAL
+#define SOFT_SERIAL_PIN D0
+
+/* Rotary Encoder Config */
+
+#define ENCODERS_PAD_A { D4 }
+#define ENCODERS_PAD_B { F4 }
+// #define ENCODER_DIRECTION_FLIP // used if encoder rotation is backwards
+#define ENCODER_RESOLUTION 4
+
+/* Mouse Config */
 #define MOUSEKEY_INTERVAL       20
 #define MOUSEKEY_DELAY          0
-#define MOUSEKEY_TIME_TO_MAX    60
-#define MOUSEKEY_MAX_SPEED      7
+#define MOUSEKEY_TIME_TO_MAX    90
+#define MOUSEKEY_MAX_SPEED      6
 #define MOUSEKEY_WHEEL_DELAY 0
 
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE 5
+#define TAPPING_TERM 200
 
-/* serial.c configuration for split keyboard */
-#define SOFT_SERIAL_PIN D0
+/* Helps smooth out Encoders */
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
-
 /* Enables This makes it easier for fast typists to use dual-function keys */
 #define PERMISSIVE_HOLD
 
 /* ws2812 RGB LED */
-#define RGB_DI_PIN D3
-
-#define RGBLED_NUM 12    // Number of LEDs
+// #define RGB_DI_PIN D3
+// #define RGBLED_NUM 0    // Number of LEDs
 
 /*
  * Feature disable options

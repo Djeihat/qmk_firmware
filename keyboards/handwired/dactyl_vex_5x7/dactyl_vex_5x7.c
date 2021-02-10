@@ -1,4 +1,4 @@
-#include "dactyl_promicro.h"
+#include "dactyl_vex_5x7.h"
 
 #ifdef SSD1306OLED
 void led_set_kb(uint8_t usb_led) {
